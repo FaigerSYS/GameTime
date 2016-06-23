@@ -1,0 +1,39 @@
+name: GameTime
+main: FaigerSYS\GameTime\Main
+version: 1.0
+api: [1.13.0, 2.0.0]
+load: POSTWORLD
+author: FaigerSYS
+description: 'How many time you play on servers?'
+
+commands:
+ gametime:
+  aliases: [gt, gamtim, gtime]
+  description: 'Gametime command'
+  permission: gametime
+
+permissions:
+ gametime:
+  description: 'Allow use command "/gt"'
+  default: true
+  children:	
+   gametime.all:
+    description: 'Allow to use command "/gt all"'
+    default: true
+    children:
+     gametime.all.self:
+      description: 'Allow to see your total time of the game'
+      default: true
+     gametime.all.other:
+      description: 'Allow to see total time of the game of other players'
+      default: op
+   gametime.now:
+    description: 'Allow to use command "/gt now"'
+    default: true
+    children:
+     gametime.now.self:
+      description: 'Allow to see your duration of session'
+      default: true
+     gametime.now.other:
+      description: 'Allow to see duration of session of other players'
+      default: op
